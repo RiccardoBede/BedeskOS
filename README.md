@@ -31,3 +31,11 @@ Il sistema funziona all'interno di macchine virtuali come QEMU e VirtualBox, e a
 | `disco [-info, -format]` | suite di comandi per eseguire operazioni sul disco| parziale |
 | `ls` | lista dei file presenti sul disco | `false` |
 | `editor <file>` | creazione/lettura di un file presente sul disco | parziale |
+
+## Immagini del Sistema
+
+![Avvio di BedeskOS](https://github.com/user-attachments/assets/14c7848a-1fa2-47be-a025-a9e5af982bea)
+
+![CRUD con allocatore di memoria](https://github.com/user-attachments/assets/a3c845af-96d0-46e6-b69f-f66746ebfcc8)
+
+![Operazioni sul disco](https://github.com/user-attachments/assets/58fd2cdd-29f9-4dbd-90b7-c8c339ce5ace)
