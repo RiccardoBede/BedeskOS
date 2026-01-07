@@ -14,6 +14,12 @@ Il sistema è totalmente scritto a mano, senza l' ausilio di librerie standard/e
 3. < 128GB di HDD/SSD (dato che il filesystem elabora solo variabili a 32bit **`unsigned long int`**)
 
 ## Compilazione
+
+### Pacchetti necessari
+Derivate Debian e derivate: `build-essential` `nasm` `gcc` `grub-mkrescue` `ld` `grub-pc-bin` `grub-common` `xorriso` `mtools` 
+<br><br>
+Arch e derivate: `base-devel` `nasm` `gcc` `ld` `grub` `grub-mkrescue` `xorriso` `mtools`
+
 Il sistema funziona all'interno di macchine virtuali come QEMU e VirtualBox, e anche su hardware reale.
 1. `make clean`
 2. `make`
