@@ -40,7 +40,7 @@ Il sistema funziona all'interno di macchine virtuali come QEMU e VirtualBox, e a
 
 ## Immagini del Sistema
 
-![Avvio di BedeskOS](https://github.com/user-attachments/assets/14c7848a-1fa2-47be-a025-a9e5af982bea)
+![Avvio di BedeskOS](https://github.com/user-attachments/assets/24ad87ef-fd94-49ca-824e-067c258da178)
 
 ![CRUD con allocatore di memoria](https://github.com/user-attachments/assets/a3c845af-96d0-46e6-b69f-f66746ebfcc8)
 
