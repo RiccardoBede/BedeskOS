@@ -5,8 +5,8 @@ Sistema Operativo a 32bit sviluppato in C per eseguire I/O sulle porte/periferic
 BedeskOS è un sitema operativo a 32bit sviluppato in kernel mode per la piattaforma i386.
 Il sistema è totalmente scritto a mano, senza l' ausilio di librerie standard/esterne. 
 > [!WARNING]
-> Il filesystem è ancora in fase di programmazione, e presenta diversi problemi di funzionamento
-> è **altamente sconsigliato** il salvataggio di dati importanti!
+> Il filesystem è ancora in fase di programmazione e presenta diversi problemi di funzionamento.
+> È **altamente sconsigliato** il salvataggio di dati importanti!
 
 ## Requisiti di Sistema
 1. 100MB di RAM
