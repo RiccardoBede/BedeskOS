@@ -23,7 +23,7 @@ Il sistema funziona all'interno di macchine virtuali come QEMU e VirtualBox, e a
 | Nome comando | Scopo | Funziona |
 | --- | --- | --- |
 | `stampa <string>` | stampa i caratteri immessi | `true` |
-| `ptr [-c, -l, -s <string>, -rm <indirizzo>]` | allocazione in memoria + operazioni CRUD | `true` |
+| `ptr [-c, -l <indirizzo>, -s <string>, -rm <indirizzo>]` | allocazione in memoria + operazioni CRUD | `true` |
 | `sys (-spg, -riv, -ibe, -ram, -panic <string>)` | suite di comandi di sistema | parziale |
 | `clear` | pulisce lo schermo | `true` |
 | `inb (porta)` | lettura da porta | `true` |
