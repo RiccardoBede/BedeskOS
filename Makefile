@@ -1,12 +1,10 @@
-# Nome dell'immagine ISO
 ISO_IMG = bkernel.iso
 
-# File di output
+# File output
 KERNEL_ELF = bkernel.bin
 KERNEL_OBJ = bkernel.o
 MULTIBOOT_OBJ = multiboot_header.o
 
-# Compilatori e opzioni
 GCC = gcc
 GCC_FLAGS = -ffreestanding -m32 -c -Wno-implicit-function-declaration -fno-stack-protector -nostdlib
 
@@ -32,7 +30,6 @@ $(MULTIBOOT_OBJ): multiboot_header.asm
 $(KERNEL_ELF): $(MULTIBOOT_OBJ) $(KERNEL_OBJ)
 	$(LD) -m elf_i386 -T $(LD_SCRIPT) -Ttext 0x1000 -o $@ $^
 
-# Creazione dell'immagine ISO
 $(ISO_IMG): $(KERNEL_ELF)
 	mkdir -p iso/boot/grub
 	cp $(KERNEL_ELF) iso/boot/bkernel.bin
@@ -44,7 +41,6 @@ $(ISO_IMG): $(KERNEL_ELF)
 	echo '}' >> iso/boot/grub/grub.cfg
 	$(GRUBMKRESCUE) $(GRUBMKRESCUE_FLAGS) $(ISO_IMG) iso
 
-# Pulizia dei file generati
 clean:
 	rm -f $(KERNEL_ELF) $(KERNEL_OBJ) $(MULTIBOOT_OBJ) $(ISO_IMG)
 	rm -rf iso
