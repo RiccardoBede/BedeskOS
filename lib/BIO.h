@@ -52,26 +52,28 @@ char inw (unsigned short porta){
 	false
 }bool;*/
 
+typedef struct{
+	char carattere;
+	char colore;
+}CarattereColore;
+
 static int cc = 0;
 
 void cursore (){
-	char *video_memory = (char *)VIDEO_MEMORY;
-	video_memory[cc * 2] = 219;
-	video_memory[cc * 2 + 1] = COLORE_BIANCO_NERO;
+	CarattereColore *video_memory = (CarattereColore *)VIDEO_MEMORY;
+	video_memory[cc] = (CarattereColore){219, COLORE_BIANCO_NERO};
 }
 
 void cancella_cursore(){
-	char *video_memory = (char *)VIDEO_MEMORY;
-	video_memory[cc * 2] = ' ';
-	video_memory[cc * 2 + 1] = COLORE_NERO_NERO;
+	CarattereColore *video_memory = (CarattereColore *)VIDEO_MEMORY;
+	video_memory[cc] = (CarattereColore){' ', COLORE_NERO_NERO};
 }
 
 void acapo() { 
-	char *video_memory = (char *)VIDEO_MEMORY;
+	CarattereColore *video_memory = (CarattereColore *)VIDEO_MEMORY;
 	int caratteri_restanti = CARATTERI_RIGA - (cc % CARATTERI_RIGA);
 	for (int i = 0; i < caratteri_restanti; i++) { 
-		video_memory[cc * 2] = ' '; 
-		video_memory[cc * 2 + 1] = COLORE_NERO_NERO;
+		video_memory[cc] = (CarattereColore){' ', COLORE_NERO_NERO};
 		cc++;
 	} 
 	if (cc % CARATTERI_RIGA != 0){
@@ -80,14 +82,13 @@ void acapo() {
 }
 
 void cancella_char (){
-	char *video_memory = (char *)VIDEO_MEMORY;
-	video_memory[cc / 2] = 0x00;
-	video_memory[cc / 2 - 1] = COLORE_NERO_NERO;
+	CarattereColore *video_memory = (CarattereColore *)VIDEO_MEMORY;
+	video_memory[cc] = (CarattereColore){0x00, COLORE_NERO_NERO};
 	cc--;
 }
 
 void print (const char messaggio[], char colore){
-	char *video_memory = (char*)VIDEO_MEMORY;
+	CarattereColore *video_memory = (CarattereColore *)VIDEO_MEMORY;
 	int index_messaggio = 0;
 	cancella_cursore();
 	for (cc; messaggio[index_messaggio] != '\0'; cc++){
@@ -95,8 +96,7 @@ void print (const char messaggio[], char colore){
 			acapo();
 			index_messaggio++;
 		}*/
-		video_memory[cc * 2] = messaggio[index_messaggio];
-		video_memory[cc * 2 + 1] = colore;
+		video_memory[cc] = (CarattereColore){messaggio[index_messaggio], colore};
 		index_messaggio++;
 		if (index_messaggio > 0 && messaggio[index_messaggio - 1] == '\n'){
 			acapo();
@@ -106,10 +106,9 @@ void print (const char messaggio[], char colore){
 }
 
 void printchar (const char carattere, char colore){
-	char *video_memory = (char*)VIDEO_MEMORY;
+	CarattereColore *video_memory = (CarattereColore *)VIDEO_MEMORY;
 	cancella_cursore();
-	video_memory[cc * 2] = carattere;
-	video_memory[cc * 2 + 1] = colore;
+	video_memory[cc] = (CarattereColore){carattere, colore};
 	cc++;
 	cursore();
 }
@@ -230,10 +229,9 @@ void printindir (void *indirizzo, char colore){
 }
 
 void clear (){
-	char *video_memory = (char*)VIDEO_MEMORY;
+	CarattereColore *video_memory = (CarattereColore *)VIDEO_MEMORY;
 	for (int dd = 0; dd < (CARATTERI_RIGA * RIGHE); dd++){
-		video_memory[dd * 2] = 0;
-		video_memory[dd * 2 + 1] = COLORE_NERO_NERO;
+		video_memory[dd] = (CarattereColore){0, COLORE_NERO_NERO};
 	}
 	cc = 0;
 }
